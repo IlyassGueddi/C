@@ -14,9 +14,10 @@ int main(){
     scanf("%f", &price);
     printf("Enter the quantity of the item: ");
     scanf("%i", &quantity);
+    item[strlen(item) - 1] = '\0';
 
     totale = price * quantity;
-    printf("\nthe totale price of %i %s %.2f%c \n \n", quantity, item, totale, currency);
+    printf("\nthe totale price of %i %s/s %.2f%c \n \n", quantity, item, totale, currency);
 
     return 0;
 }
