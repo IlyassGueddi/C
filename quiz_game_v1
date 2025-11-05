@@ -1,0 +1,145 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+    char quiz1 [5][100] = {"What data type is used to store whole numbers in C\n\n",
+                        "A) float\n",
+                        "B) char\n",
+                        "C) int\n",
+                        "D) double\n\n"};
+
+    char quiz2 [5][100] = {"What does the function printf() do\n\n",
+                        "A) Prints text to the screen\n",
+                        "B) Reads user input\n",
+                        "C) Performs a calculation\n",
+                        "D) Stops the program\n\n"};
+    
+    char quiz3 [5][100] = {"Which keyword is used to define a constant value\n\n",
+                        "A) #define\n",
+                        "B) const\n",
+                        "C) static\n",
+                        "D) fixed\n\n"};
+
+    srand(time(NULL));
+    int rannum = rand() %3 + 1;
+
+    switch (rannum){
+        case 1:
+
+            for (int i =0; i < 5 ;i++ ){
+                for (int j = 0; j < 100; j++){
+                    printf("%c", quiz1[i][j]);
+                }
+            }
+            char answer1 = ' ';
+            printf("\n what is your answer : ");
+            scanf(" %c", &answer1);
+
+            switch (answer1)
+            {
+            case 'A':
+                printf("false , good luck next time!\n\n");
+                break;
+
+            case 'B':
+                printf("false , good luck next time!\n\n");
+                break;
+
+            case 'C':
+                printf("True , congratilations!\n\n");
+                break;
+
+            case 'D':
+                printf("false , good luck next time!\n\n");
+                break;
+
+            default:
+                printf("invalid value! \n\n");
+                break;
+            }
+
+
+            break;
+            
+        case 2:
+
+            for (int i =0; i < 5 ;i++ ){
+                for (int j = 0; j < 100; j++){
+                    printf("%c", quiz2[i][j]);
+                }
+            }
+            
+            char answer2 = ' ';
+            printf("\n what is your answer : ");
+            scanf(" %c", &answer2);
+
+            switch (answer2)
+            {
+            case 'A':
+                printf("True , congratilations!\n\n");
+                break;
+
+            case 'B':
+                printf("false , good luck next time!\n\n");
+                break;
+
+            case 'C':
+                printf("false , good luck next time!\n\n");
+                break;
+
+            case 'D':
+                printf("false , good luck next time!\n\n");
+                break;
+
+            default:
+                printf("invalid value! \n\n");
+                break;
+            }
+
+            break;
+
+        case 3:
+
+            for (int i =0; i < 5 ;i++ ){
+                for (int j = 0; j < 100; j++){
+                    printf("%c", quiz3[i][j]);
+                }
+            }
+
+            char answer3 = ' ';
+            printf("\n what is your answer : ");
+            scanf(" %c", &answer3);
+
+            switch (answer3)
+            {
+            case 'A':
+                printf("false , good luck next time!\n\n");
+                break;
+
+            case 'B':
+                printf("True , congratilations!\n\n");
+                break;
+
+            case 'C':
+                printf("false , good luck next time!\n\n");
+                break;
+
+            case 'D':
+                printf("false , good luck next time!\n\n");
+                break;
+
+            default:
+                printf("invalid value! \n\n");
+                break;
+            }
+
+            break;
+        
+        default:
+            break;
+        }
+
+
+    return 0;
+}
