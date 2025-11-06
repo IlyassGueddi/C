@@ -76,6 +76,8 @@ int main(){
     return 0;
 }
 
+
+
 void choose_main(){
     printf("------ Student Grade Manager ------\n\n");
     printf("1- Classes\n");
