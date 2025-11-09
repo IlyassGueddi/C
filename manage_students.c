@@ -57,7 +57,7 @@ void findastudentbyname(char name[50]){
             students[i].grade = newgrade;
 
             found = true;
-            break; // نخرج من الحلقة بعد ما نلقا الطالب
+            break; 
         }
     }
     if (!found) {
