@@ -11,11 +11,23 @@ int main(){
         return 1;
     }
 
+    // reading all the file char by char
+    char ch;
+    while ((ch = fgetc(filepointer)) != EOF){
+        printf("%c", ch);
+    }
+
+    /*
+    // reading a line max 100 char 
+    char line[100];
+    fgets(line, 100, filepointer);
+    printf("%s", line);
+    
+    //read one word and stop in the first space
     char word[50]; 
     fscanf(filepointer, "%s", word);
     printf("%s/n", word);
-
-    /*
+    
     // setting the pointer localisation 
 
     fseek(filepointer, 0, SEEK_END);
