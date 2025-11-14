@@ -3,21 +3,21 @@
 int main(){
     
     // Open the file 
-    FILE *filepointer = fopen("/home/mial/Desktop/file.txt", "r");
+    FILE *filepointer = fopen("/home/mial/Desktop/file.txt", "w");
 
     // check the file openning 
     if (filepointer == NULL){
         printf("Error 404\n we couldn't open the file!\n");
         return 1;
     }
-
+/*
     // reading all the file char by char
     char ch;
     while ((ch = fgetc(filepointer)) != EOF){
         printf("%c", ch);
     }
 
-    /*
+    
     // reading a line max 100 char 
     char line[100];
     fgets(line, 100, filepointer);
@@ -39,12 +39,12 @@ int main(){
 
     printf("Give me your name");
     scanf("%s", name);
-
-    fprintf(filepointer, "\nthis my full name: %s.", name);
+*/
+    fprintf(filepointer, "\n.the weather today is beautifull!!");
 
     // Close the file
     fclose(filepointer);
-    */
+    
 
     return 0;
 }
