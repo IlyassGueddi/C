@@ -6,6 +6,8 @@ void menu();
 
 void addtask(char task[300], FILE* file, int *ID, char cont);
 
+void readall(FILE* file, char ch);
+
 int ID = 0;
 
 int main(){
@@ -49,8 +51,20 @@ int main(){
                 break;
 
             case 3:
-                /* code */
+                // open the tasks file
+                tasksfile = fopen("/home/mial/Desktop/task.txt", "r");
+
+                // check if there is some error in the file openning 
+                if (tasksfile == NULL){
+                    printf("---- Error ----\n we couldn't open the file!\n");
+                    return 1;
+                }
+
+                char ch;
+                readall(tasksfile, ch);
                 break;
+
+                fclose(tasksfile);
 
             case 4:
                 /* code */
@@ -84,4 +98,12 @@ void addtask(char task[300], FILE* file, int *ID, char cont){
 
     fprintf(file, "task %d :: %s", *ID, task);
     (*ID)++; 
+}
+
+void readall(FILE* file, char ch){
+    printf("\n");
+    while ((ch = fgetc(file)) != EOF){
+        printf("%c", ch);
+    }
+    printf("\n");
 }
