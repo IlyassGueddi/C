@@ -13,6 +13,9 @@ void third_choice(int *choice);
 void fourth_menu();
 void fourth_choice(int *choice);
 
+void clear_screen();
+
+
 int user_menu_choice;
 int *UMC = &user_menu_choice;
 
@@ -28,10 +31,10 @@ int *U3C = &user_third_choice;
 int user_fourth_choice;
 int *U4C = &user_fourth_choice;
 
-
 int main(){
     while (true)
     {
+        clear_screen();
         menu();
         menu_choice(UMC);
 
@@ -39,6 +42,7 @@ int main(){
             printf("invalid value!\nenter a number between [1] and [5]\n");
         }
         else if (user_menu_choice == 5) {
+            clear_screen();
             printf("Good bye!\n");
             break;
         }
@@ -46,6 +50,7 @@ int main(){
             switch (user_menu_choice)
             {
             case 1:
+                clear_screen();
                 first_menu();
                 first_choice(U1C);
 
@@ -79,6 +84,7 @@ int main(){
                 break;
 
             case 2:
+                clear_screen();
                 second_menu();
                 second_choice(U2C);
 
@@ -111,6 +117,7 @@ int main(){
                 break;
 
             case 3:
+                clear_screen();
                 third_menu();
                 third_choice(U3C);
 
@@ -151,6 +158,7 @@ int main(){
                 break;
 
             case 4:
+                clear_screen();
                 fourth_menu();
                 fourth_choice(U4C);
 
@@ -200,6 +208,11 @@ int main(){
     return 0;
 }
 
+
+void clear_screen(){
+    printf("\033c");
+    fflush(stdout);
+}
 
 void menu(){
     printf("[1] Products management\n");
