@@ -6,7 +6,7 @@ int secret, user ;
 
 int main(){
 
-    srand(time(Null));
+    srand(time(NUll));
     secret = rand() % 100 + 1;
 
     printf("%d", secret);

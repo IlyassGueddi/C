@@ -31,6 +31,31 @@ int *U3C = &user_third_choice;
 int user_fourth_choice;
 int *U4C = &user_fourth_choice;
 
+
+typedef struct {
+    int id;
+    char name[50];
+    char category[30];
+    float price;
+    int quantity;
+}product;
+
+typdef struct {
+    int id;
+    char name[50];
+    int phone;
+    char email;
+}client;
+
+typedef struct {
+    int id;
+    int client_id;
+    int product_id;
+    int quantity;
+    float total_price;
+}order;
+
+
 int main(){
     while (true)
     {
