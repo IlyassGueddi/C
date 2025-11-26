@@ -40,7 +40,7 @@ typedef struct {
     int quantity;
 }product;
 
-typdef struct {
+typedef struct {
     int id;
     char name[50];
     int phone;
