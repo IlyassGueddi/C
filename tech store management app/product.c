@@ -72,11 +72,11 @@ int main(){
 
             for (int j = 0 ; j <= i ; j++){
                 if (i == j && i == 0){
-                    printf("\n\n%d :: %s   %s   :  %.2f   %d\n\n", products[j].id, products[j].name, products[j].category, products[j].price, products[j].quantity);
+                    printf("\n\n%d :: %s ; %s   :  %.2f ; %d\n\n", products[j].id, products[j].name, products[j].category, products[j].price, products[j].quantity);
                 }else if (i == j){
-                    printf("%d :: %s   %s   :  %.2f   %d\n\n", products[j].id, products[j].name, products[j].category, products[j].price, products[j].quantity);
+                    printf("%d :: %s ; %s   :  %.2f ; %d\n\n", products[j].id, products[j].name, products[j].category, products[j].price, products[j].quantity);
                 }else{
-                    printf("%d :: %s   %s   :  %.2f   %d\n", products[j].id, products[j].name, products[j].category, products[j].price, products[j].quantity);
+                    printf("%d :: %s ; %s   :  %.2f ; %d\n", products[j].id, products[j].name, products[j].category, products[j].price, products[j].quantity);
                 }
                 
             }
@@ -108,3 +108,23 @@ void first_choice(int *choice){
     printf("\nChoose a number: ");
     scanf("%d", choice);
 }
+
+/*
+FILE *fp = fopen("products.txt", "r");
+    if (fp != NULL) {
+        while (1) {
+            i++;
+            // read according to your format: id :: name ; category   : price ; quantity
+            if (fscanf(fp, "%d :: %49[^;] ; %29[^:]: %f ; %d\n",
+                       &products[i].id,
+                       products[i].name,
+                       products[i].category,
+                       &products[i].price,
+                       &products[i].quantity) != 5) {
+                i--; // adjust index if read fails
+                break;
+            }
+        }
+        fclose(fp);
+    }
+*/
