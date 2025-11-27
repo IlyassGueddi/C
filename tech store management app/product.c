@@ -30,7 +30,6 @@ void first_menu();
 int choice;
 int *ch = &choice;
 int i = 0;
-int *ii = &i;
 
 product products[250];
 client clients [100];
@@ -49,15 +48,18 @@ int main(){
             float price;
             int quantity;
 
+            while ((c = getchar()) != '\n' && c != EOF);
             printf("give me the name of the product: ");
             fgets(name, sizeof(name), stdin);
-            while ((c = getchar()) != '\n' && c != EOF);
             name[strcspn(name, "\n")] = 0;
+
             printf("give me the category of the product: ");
             fgets(category, sizeof(category), stdin);
             category[strcspn(category, "\n")] = 0;
+
             printf("give me the price of the product: ");
             scanf("%f", &price);
+
             printf("give me the quantity of the product: ");
             scanf("%d", &quantity);
 
@@ -67,10 +69,16 @@ int main(){
             products[i].price = price;
             products[i].quantity = quantity;
 
-            ii++;
 
-            for (int i = 0 ; i<250 ; i++){
-                printf("%d :: %s   %s   :  %.2f   %d", products[i].id, products[i].name, products[i].category, products[i].price, products[i].quantity);
+            for (int j = 0 ; j <= i ; j++){
+                if (i == j && i == 0){
+                    printf("\n\n%d :: %s   %s   :  %.2f   %d\n\n", products[j].id, products[j].name, products[j].category, products[j].price, products[j].quantity);
+                }else if (i == j){
+                    printf("%d :: %s   %s   :  %.2f   %d\n\n", products[j].id, products[j].name, products[j].category, products[j].price, products[j].quantity);
+                }else{
+                    printf("%d :: %s   %s   :  %.2f   %d\n", products[j].id, products[j].name, products[j].category, products[j].price, products[j].quantity);
+                }
+                
             }
 
             break;
