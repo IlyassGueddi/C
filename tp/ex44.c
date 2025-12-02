@@ -8,7 +8,6 @@ int main(){
         mil = i;
         km = mil * 1.609344 ;
         printf("%d  ::  %d\n", mil, km);
-        
     }
 
     return 0;
