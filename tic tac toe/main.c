@@ -1,21 +1,23 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+void menu_P();
 void check_winner(char board[9]);
 void board_P(char board[9]);
+void player_O(char *p, char player);
+void player_X(char *p, char player);
 
 int main(){
     char board[9] = {'0','1','2',
                      '3','4','5',
                      '6','7','8'};
 
+    char *board_p = board;
+
     while (true)
     {
         int user = 0;
-        printf("\t----- MENU -----\n\n");
-        printf("\t1- play with human\n");
-        printf("\t2- play with computer\n");
-        printf("\t3- exit\n\n");
+        menu_P();
           
         printf("What's your choice: ");
         scanf("%d", &user);
@@ -27,15 +29,14 @@ int main(){
 
             board_P(board);
 
-            printf("\nWhats's your choice: ");
+            printf("\nWhats's your Move: ");
             scanf("%c", &player);
             while ((getchar()) != '\n'); 
-            int index = player - '0';
+            
+            player_X(board_p, player);
 
-            if (index >= 0 && index < 9) {
-                board[index] = 'X';
-            } else {
-                printf("Invalid move!\n");
+            for (int i = 0; i < 9 ; i = i + 1){
+                printf("%c",board[i]);
             }
             
         }else if (user == 2){
@@ -51,6 +52,34 @@ int main(){
 
 
     return 0;
+}
+
+void player_X(char *p, char player){
+    int index = player - '0';
+
+    if (index >= 0 && index < 9) {
+        *(p + index) = 'X';
+    }else {
+        printf("Invalid move!\n");
+    }
+}
+
+void player_O(char *p, char player){
+    int index = player - '0';
+
+    if (index >= 0 && index < 9) {
+        *(p + index) = 'O';
+    }else {
+        printf("Invalid move!\n");
+    }
+}
+
+
+void menu_P(){
+    printf("\t----- MENU -----\n\n");
+    printf("\t1- play with human\n");
+    printf("\t2- play with computer\n");
+    printf("\t3- exit\n\n");
 }
 
 void board_P(char board[9]){
