@@ -4,8 +4,7 @@
 void menu_P();
 int check_winner(char board[9]);
 void board_P(char board[9]);
-void player_O(char *p, char player);
-void player_X(char *p, char player);
+void player_(char *p, char player, char Pl);
 void announce_win(int result);
 
 int main(){
@@ -24,12 +23,13 @@ int main(){
         scanf("%d", &user);
         while ((getchar()) != '\n'); 
 
-        while (true){
-            char player ;
-            if (user == 1){
+        
+        char player;
+        char play = 'X';
+        if (user == 1){
                 while (true){
                     player = 100;
-                    printf("\t\nplayer X: \n");
+                    printf("\t\nplayer %c: \n", play);
 
                     board_P(board);
 
@@ -37,7 +37,7 @@ int main(){
                     scanf("%c", &player);
                     while ((getchar()) != '\n'); 
                     
-                    player_X(board_p, player);
+                    player_(board_p, player, play);
 
                     int result = check_winner(board);
                     announce_win(result);
@@ -46,41 +46,28 @@ int main(){
                         break;
                     }
 
-                    char player = 100;
-                    printf("\t\nplayer O: \n");
+                    if (play == 'X'){
+                        play = 'O';
+                    }else if(play == 'O'){
+                        play = 'X';
+                    } 
+                }
 
                     board_P(board);
-
-                    printf("\nWhats's your Move: ");
-                    scanf("%c", &player);
-                    while ((getchar()) != '\n'); 
-                    
-                    player_O(board_p, player);
-
-                    result = check_winner(board);
-                    announce_win(result);
-
-                    if ((result == 1) || (result == 2)  || (result == 3)){
-                        break;
+                    for (int i = 0; i < 9; i++) {
+                        board[i] = '0' + i;
                     }
-                }
-                board_P(board);
-                for (int i = 0; i < 9; i++) {
-                    board[i] = '0' + i;
-                }
-                break;
                 
-                
-            }else if (user == 2){
+        }else if (user == 2){
                 // ### To Do later ###
-            }else if (user == 3){
+        }else if (user == 3){
                 printf("Good Bye!\n");
                 break;
-            }else{
+        }else{
                 printf("invalid value!\n");
-            }
-        
         }
+        
+        
         
     }
 
@@ -88,25 +75,26 @@ int main(){
     return 0;
 }
 
-void player_X(char *p, char player){
+void player_(char *p, char player, char Pl){
     int index = player - '0';
 
-    if (index >= 0 && index < 9) {
-        *(p + index) = 'X';
-    }else {
-        printf("Invalid move!\n");
+    if (Pl == 'X'){
+        if (index >= 0 && index < 9) {
+            *(p + index) = 'X';
+        }else {
+            printf("Invalid move!\n");
+        }
+    }else if(Pl == 'O'){
+        if (index >= 0 && index < 9) {
+            *(p + index) = 'O';
+        }else {
+            printf("Invalid move!\n");
+        }
     }
+    
 }
 
-void player_O(char *p, char player){
-    int index = player - '0';
 
-    if (index >= 0 && index < 9) {
-        *(p + index) = 'O';
-    }else {
-        printf("Invalid move!\n");
-    }
-}
 
 
 void menu_P(){
@@ -135,7 +123,6 @@ int check_winner(char board[9]) {
         (board[2] == 'X' && board[4] == 'X' && board[6] == 'X') ||
         (board[0] == 'X' && board[4] == 'X' && board[8] == 'X')
     ) {
-        printf("\n\nPlayer X wins!\n\n");
         return 1;
     }
     else if (
@@ -148,7 +135,6 @@ int check_winner(char board[9]) {
         (board[2] == 'O' && board[4] == 'O' && board[6] == 'O') ||
         (board[0] == 'O' && board[4] == 'O' && board[8] == 'O')
     ) {
-        printf("\n\nPlayer O wins!\n\n");
         return 2;
     }
     else if (
