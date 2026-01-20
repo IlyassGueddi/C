@@ -20,7 +20,7 @@ int main()
 
     *(arr + 1) = 2026;
 
-    int *test1 = realloc(arr, 2 * sizeof *arr);
+    int *test1 = realloc(arr, 3 * sizeof *arr);
     if (test1 == NULL)
     {
         free(arr);
